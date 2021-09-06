@@ -1,0 +1,40 @@
+//@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+//@import '@fortawesome/fontawesome-free/scss/brands.scss';
+// INLINED from above due to warnings/issues that cause SCSS compilation to fail under Astro
+
+$fa-font-path: "/fonts";
+$fa-font-display: block;
+@function fa-content($fa-var) {
+  @return unquote("\"#{ $fa-var }\"");
+}
+
+@mixin fa-icon {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/fa-brands-400.eot');
+  src: url('#{$fa-font-path}/fa-brands-400.eot?#iefix') format('embedded-opentype'),
+  url('#{$fa-font-path}/fa-brands-400.woff2') format('woff2'),
+  url('#{$fa-font-path}/fa-brands-400.woff') format('woff'),
+  url('#{$fa-font-path}/fa-brands-400.ttf') format('truetype'),
+  url('#{$fa-font-path}/fa-brands-400.svg#fontawesome') format('svg');
+}
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+  font-weight: 400;
+}
+
+$fa-var-wikipedia-w: \f266;
+// END inlining

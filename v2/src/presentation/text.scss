@@ -1,0 +1,112 @@
+/*** Italicize non-English (but Latin) languages: ***/
+span[lang|=ban], /* Balinese */
+span[lang|=bn-Latn], /* Bangla */
+span[lang|=de], /* German */
+span[lang|=ee], /* Ewe */
+span[lang|=es], /* Spanish */
+span[lang|=fr], /* French */
+span[lang|=ga], /* Gaelic */
+span[lang|=grc-Latn], /* Ancient Greek */
+span[lang|=gsw], /* Swiss German */
+span[lang|=haw], /* Hawaiian */
+span[lang|=id], /* Indonesian */
+span[lang|=is], /* Icelandic */
+span[lang|=it], /* Italian */ 
+span[lang|=ja-Latn], /* Japanese */
+span[lang|=jv-Latn], /* Javanese */
+span[lang|=km-Latn], /* Khmer */
+span[lang|=ko-Latn], /* Korean */
+span[lang|=mi], /* Māori */
+span[lang|=min], /* Minangkabau */
+span[lang|=ms], /* Malay (meta-language) */
+span[lang|=my-Latn], /* Burmese */
+span[lang|=nan-Latn], /* Min Nan Chinese (including Taiwanese, Hokkien, Amoy, …) */
+span[lang|=ne-Latn], /* Nepali */
+span[lang|=nl], /* Dutch */
+span[lang|=pt], /* Portuguese */
+span[lang|=rng], /* Ronga */
+span[lang|=si-Latn], /* Sinhalese */
+span[lang|=sn], /* Shona */
+span[lang|=so], /* Somali */
+span[lang|=st], /* seSotho */
+span[lang|=sv], /* Swedish */
+span[lang|=th-Latn], /* Thai */
+span[lang|=tn], /* Tswana */
+span[lang|=ve], /* Venda */
+span[lang|=yue-Latn], /* Cantonese */
+span[lang|=zh-Latn], /* (Standard) Chinese */
+span[lang|=zu] /* isiZulu */
+{ 
+  @include italic-font;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  span[lang] {
+    /* undo effects of italic-font, except font-style */
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+  }
+}
+
+cite:lang(zh), cite:lang(ja) {
+  font-style: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+ /* present proper nouns upright as there is no need to distinguish from
+  * surrounding text */
+span.proper-noun, span.game-title {
+  /* undo effects of italic-font */
+  font-style: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+/* We are going to be embedding Japanese and Chinese in Latin text,
+  so make them proportional. This has better spacing for kana etc. */
+body {
+  font-variant-east-asian: proportional-width;
+}
+ 
+/* Work titles in non-Latin languages: */
+cite:lang(zh) { font-style: inherit }
+cite:lang(zh)::before { content: '《'; font-feature-settings: "palt" }
+cite:lang(zh)::after { content: '》'; font-feature-settings: "palt" }
+cite:lang(ja) { font-style: inherit } 
+cite:lang(ja)::before { content: '『'; font-feature-settings: "palt" }
+cite:lang(ja)::after { content: '』'; font-feature-settings: "palt" }
+
+cite:lang(zh-Latn) { font-style: italic }
+cite:lang(zh-Latn)::before { content: '' }
+cite:lang(zh-Latn)::after { content: '' }
+cite:lang(ja-Latn) { font-style: italic }
+cite:lang(ja-Latn)::before { content: '' }
+cite:lang(ja-Latn)::after { content: '' }
+
+/* Fingers crossed these are the same across all fonts.
+   These are correct on Yu Mincho and Kozuka Mincho, at least.
+ */
+.circled { font-feature-settings: "nalt" 2 }
+.squared { font-feature-settings: "nalt" 4 }
+   
+.playing-cards {
+  font-family: "NKD04";
+
+  /* this font looks disproportionate so scale it down */
+  font-size: 0.79em;
+  vertical-align: text-bottom;
+}
+
+figcaption .playing-cards {
+  /* fix alignment in captions… */
+  vertical-align: text-top;
+}
+
+.playing-cards .red {
+  color: #CC0000;
+}

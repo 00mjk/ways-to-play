@@ -1,0 +1,31 @@
+---
+import Skeleton from '../layouts/Skeleton.astro';
+import { Container, Col, Row } from 'react-bootstrap';
+---
+<Skeleton title="Welcome">
+    <Container>
+      <h1>Welcome</h1>
+      <Row>
+        <Col />
+        <Col xs="10" lg="6">
+        <p class="lead text-center">
+          Welcome to <cite>Ways to Play</cite>.
+          This is a site about games, traditional and modern, that are played around the world.
+        </p>
+        <Container className="mt-5">
+        <p>There are two main areas on this site, of:</p>
+          <ul class="ms-5">
+            <li><a href="/articles"><span role="img" aria-label="">🧾</span>&#8239;Articles</a> about games or families of games, and</li>
+            <li class="ms-5"><a href="/games"><span role="img" aria-label="">🎲</span>&#8239;Games</a> for rules of the games themselves.</li>
+          </ul>
+        <p>You might also be interested in:</p>
+        <ul class="ms-5">
+          <li>the <a href="/about"><span role="img" aria-label="">📣</span>&#8239;About</a> page, or perhaps</li>
+          <li class="ms-5">the site-wide <a href="/bibliography"><span role="img" aria-label="">📚</span>&#8239;Bibliography</a>.</li>
+        </ul>
+        </Container>
+        </Col>
+        <Col />
+      </Row>
+    </Container>
+</Skeleton>

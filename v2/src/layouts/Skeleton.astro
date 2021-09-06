@@ -1,0 +1,56 @@
+---
+import { Navbar, Container, Nav } from 'react-bootstrap';
+
+import { Person }  from '../components/Person.tsx';
+import { License } from '../components/License.tsx';
+
+import '../presentation/global.scss';
+
+const { title, bodyType } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#000000" />
+    <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300;1,500&family=Vollkorn:wght@500&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <title>{title} · Ways To Play</title>
+</head>
+<body itemScope={bodyType !== undefined} itemType={bodyType}>
+    <header>
+        <Navbar bg="primary" variant="dark">
+            <Container>
+                <Navbar.Brand href="/">Ways to Play</Navbar.Brand>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><Nav.Link href="/articles"><span role="img" aria-label="">🧾</span>&#8239;Articles</Nav.Link></li>
+                    <li class="nav-item"><Nav.Link href="/games"><span role="img" aria-label="">🎲</span>&#8239;Games</Nav.Link></li>
+                </ul>
+            </Container>
+        </Navbar>
+    </header>
+    <main>
+        <slot/>
+    </main>
+    <Navbar as='footer' bg="primary" variant="dark" expand>
+        <Container fluid>
+            <Navbar.Text className="ms-auto">
+                ©
+                {' '}
+                <Person
+                    name={{ given: "George", family: "Pollard" }}
+                    url="https://porg.es"
+                    sameAs="https://twitter.com/porges"
+                    itemProp="copyrightHolder author publisher"
+                    id="author-outer"
+                    innerId="author" />
+                <License leading rel="license" license="cc-by-nc-sa" version="4.0" />
+                {' '}
+                · Feedback? Let <a href="https://twitter.com/porges">@porges</a> know or <a href="https://github.com/Porges/ways-to-play/issues/new">open an issue</a>.
+            </Navbar.Text>
+        </Container>
+    </Navbar>
+</body>
+</html>
