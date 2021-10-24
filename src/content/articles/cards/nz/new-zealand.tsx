@@ -64,8 +64,6 @@ import imgWeeksCanasta from './Weeks-Canasta.jpg';
 import imgGoodallEgmont from './Goodall-Egmont.jpg';
 import imgGoodallMatheson from './Goodall-Matheson.jpg';
 
-import imgTax1 from './tax1.jpg';
-import imgTax2 from './tax2.jpg';
 
 const NZ: React.FC = () =>
   <>
@@ -92,14 +90,19 @@ const NZ: React.FC = () =>
       <p>Playing cards imported into New Zealand were taxed from 1860, and stamped from 1880 until the tax ended in 1930.<Cite r="TaxStampNZ" /> All examples I have seen have been stamped on the <Cards>2d</Cards>.</p>
       <div className="multi">
         <ArticleImage
-          src={imgTax1}
+          src={require('./tax1.jpg')}
           alt="">
           Tax stamp dated 14<sup>th</sup> March, 1913, on imported “1001 Aladdin” cards made by the National Card Co. of Indianapolis & New York.
         </ArticleImage>
         <ArticleImage
-          src={imgTax2}
+          src={require('./tax2.jpg')}
           alt="">
           Tax stamp dated 21<sup>st</sup> June, 1929, on imported “Congress” brand cards made by the United States Playing Card Co. in Windsor, Ontario, Canada.
+        </ArticleImage>
+        <ArticleImage
+          src={require('./tax3.jpg')}
+          alt="">
+          Undated tax stamp from A. D. Willis cards.
         </ArticleImage>
       </div>
     </Section>
@@ -148,6 +151,7 @@ const NZ: React.FC = () =>
         </div>
         <div className="multi wide">
           <ArticleImage
+            noborder
             src={[
               [imgDRGWaddingtonsAce, "An ace of spades with text reading ‘Made under licence from Waddington’s Playing Card Co Ltd. Made in New Zealand by DRG Stationery. A Dickinson–Robinson Group Product.’"],
               [imgDRGWaddingtonsJoker, "A Waddington’s-style Joker card."],
@@ -155,6 +159,7 @@ const NZ: React.FC = () =>
             At one point, DRG produced Waddington’s cards in New Zealand, under licence. Note the text on the Ace and the small ® on the joker.
           </ArticleImage>
           <ArticleImage
+            noborder
             src={[
               [imgDRGCanastaAce, ""],
               [imgDRGCanastaJoker, ""],
@@ -221,15 +226,27 @@ const NZ: React.FC = () =>
       </ArticleImage>
         <p>Archibald Dudingston Willis was a very early manufacturer of playing cards in New Zealand, who operated in Wanganui from the 1880s. In 1951 the company was sold to Weeks Ltd, which kept A. D. Willis as a subsidiary, and the business was sold in turn to United Empire Box (UEB) around 1964.<Cite r="AstuteBusinessman" /> In the late 1980s the design was taken over by Kiwi Packaging (part of Amcor). This line of designs now appears to be out-of-print, as Amcor no longer manufacture playing cards.</p>
         <ArticleImage
+          noborder
+          src={[
+            [require('./AD_Old-1.jpg'), ""],
+            [require('./AD_Old-2.jpg'), ""],
+            [require('./AD_Old-3.jpg'), ""],
+            [require('./AD_Old-4.jpg'), ""],
+          ]}>
+          Cards in the original A. D. Willis style, <abbr title="circa">c.</abbr> 1910.
+        </ArticleImage>
+        <ArticleImage
+          noborder
           src={[
             [imgWillisAce, ""],
             [imgWillisQueen, ""],
             [imgWillisJoker, ""],
             [imgWillisBox500, ""],
           ]}>
-          Cards in the Willis style, this deck possibly produced by A. D. Willis. The deck is a 500 deck and includes <Cards>&#x246A;</Cards>s, <Cards>&#x246B;</Cards>s, and <Cards>&#x246C;</Cards>s. An unusual detail is that the tail of the <Cards>Q</Cards> index is truncated on the red cards.
+          Cards in the later Willis style, this deck possibly produced by A. D. Willis. The deck is a 500 deck and includes <Cards>&#x246A;</Cards>s, <Cards>&#x246B;</Cards>s, and <Cards>&#x246C;</Cards>s. An unusual detail is that the tail of the <Cards>Q</Cards> index is truncated on the red cards.
       </ArticleImage>
         <ArticleImage
+          noborder
           src={[
             [imgWeeksAce, ""],
             [imgWeeksQueen, ""],
@@ -239,6 +256,7 @@ const NZ: React.FC = () =>
           “Hostess” Canasta cards in the Willis style, as produced by Weeks Ltd. This deck retains the short tail on the red <Cards>Q</Cards> index.
       </ArticleImage>
         <ArticleImage
+          noborder
           src={[
             [imgUEBAce, ""],
             [imgUEBQueen, ""],
@@ -248,6 +266,7 @@ const NZ: React.FC = () =>
           “Strand” Cards in the Willis style, this deck probably made by UEB. The designs are redrawn from the original Willis design. This deck is unusual in that the paper is uncoated and the cards feel like plain cardboard, despite the box promising a “Linen Finish”.
       </ArticleImage>
         <ArticleImage
+          noborder
           src={[
             [imgUEB3Ace, ""],
             [imgUEB3Queen, ""],
@@ -264,6 +283,7 @@ const NZ: React.FC = () =>
           An earlier “Arcade” box as produced by Weeks Ltd.
       </ArticleImage>
         <ArticleImage
+          noborder
           src={[
             [imgAmcorAce, ""],
             [imgAmcorQueen, ""],
@@ -274,6 +294,7 @@ const NZ: React.FC = () =>
       </ArticleImage>
         <p>UEB also produced pictorial souvenir decks, such as the one below.</p>
         <ArticleImage
+          noborder
           src={[
             [imgUEB2Back, ""],
             [imgUEB2Queen, ""],
@@ -284,6 +305,14 @@ const NZ: React.FC = () =>
       </Section>
       <Section title="Strong & Ready/Tanner Couch">
         <p>Strong & Ready Ltd. was registered from 1948–1974.</p>
+        <ArticleImage noborder size="wide" src={[
+          [require('./Elfin-1.jpg'), ""],
+          [require('./Elfin-2.jpg'), ""],
+          [require('./Elfin-3.jpg'), ""],
+          [require('./Elfin-4.jpg'), ""],
+        ]}>
+          Strong & Ready “Elfin” patience-sized playing cards.
+        </ArticleImage>
         <ArticleImage noborder size="wide" src={[
           [imgStrongReady1953Joker, ""],
           [imgStrongReady1953Ace, ""],
@@ -304,6 +333,7 @@ const NZ: React.FC = () =>
       <Section title="Foreign manufacturers">
         <p>In addition to cards manufactured in New Zealand, cards featuring New Zealand scenes were manufactured in other countries, such as the United Kingdom.</p>
         <ArticleImage
+          noborder
           src={[
             [imgGoodallEgmont, ""],
             [imgGoodallMatheson, ""],

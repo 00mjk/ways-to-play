@@ -12,6 +12,7 @@ export type Reference = Readonly<{
   URL?: string,
   ISBN?: string | number,
   ['container-title']?: string,
+  ['container-title-lang']?: string,
   volume?: string | number,
   issue?: string | number,
   ['original-date']?: { year: number },
@@ -20,21 +21,36 @@ export type Reference = Readonly<{
   publisher?: string,
   ['publisher-lang']?: string,
   page?: string | number,
+  warnings?: string,
+
+  filed?: { year: number, month: number, day: number }, // for patents
+  applicationNumber?: string|number,
+  patentNumber?: string|number,
 }>
 
-const itemTypes: { [key: string]: string } = {
+const itemTypes: Record<string, string> = {
   'article-journal': 'http://schema.org/ScholarlyArticle',
   'book': 'http://schema.org/Book',
   'thesis': 'http://schema.org/Thesis',
   'webpage': 'http://schema.org/WebPage',
   'paper-conference': 'http://schema.org/ScholarlyArticle',
   'article': 'http://schema.org/Article',
-  'manuscript': 'http://schema.org/Article', //TODO
+  'manuscript': 'http://schema.org/Manuscript',
   'pamphlet': 'http://schema.org/Article', //TODO
   'article-newspaper': 'http://schema.org/Article', //TODO
   'article-magazine': 'http://schema.org/Article', //TODO
   'chapter': 'http://schema.org/Article', //TODO
+  'patent': 'http://schema.org/CreativeWork',
 };
+
+const numberFormatter = new Intl.NumberFormat('en');
+function formatNumberString(it : string|number): string {
+  if (typeof it === 'number') {
+    return numberFormatter.format(it);
+  }
+
+  return it;
+}
 
 const renderAuthors = (reference: Reference) => {
   if (reference.author) {
@@ -49,7 +65,7 @@ const renderAuthors = (reference: Reference) => {
   }
 }
 
-const renderTitle = (reference: Reference) => {
+function renderTitle(reference: Reference): JSX.Element {
   const html = { __html: reference.title };
 
   const lang = reference["title-lang"];
@@ -60,7 +76,7 @@ const renderTitle = (reference: Reference) => {
       : <span dangerouslySetInnerHTML={html} />;
 
   return reference.type === 'book'
-    ? <><cite itemProp="name" lang={lang}>{linked}</cite>{reference.volume && <> (volume {reference.volume})</>}. </>
+    ? <><cite itemProp="name" lang={lang}>{linked}</cite>{reference.volume && <> (volume {formatNumberString(reference.volume)})</>}. </>
     : <>‘<span itemProp="name headline" lang={lang}>{linked}</span>’. </>;
 }
 
@@ -84,6 +100,20 @@ const renderDate = (reference: Reference) => {
     return <>(<time itemProp="datePublished" dateTime={`${issued.year}${monthDay}`}>{issued.year}</time>{original}). </>;
   }
 
+  // patents might only have been filed
+  if (reference.filed) {
+    const { filed } = reference;
+
+    let monthDay =
+      'day' in filed
+        ? `-${filed.month}-${filed.day}`
+        : 'month' in filed
+          ? `-${filed.month}`
+          : '';
+
+    return <>(<time itemProp="datePublished" dateTime={`${filed.year}${monthDay}`}>{filed.year}</time>). </>;
+  }
+
   return 'n.d. ';
 }
 
@@ -100,12 +130,12 @@ const renderISBN = (reference: Reference) => (
 const renderPeople = (as: readonly Author[], reverseFirst: boolean, period: boolean, itemProp: string) => {
   const renderFamily = (a: Author, ix: number) => a.family && <><span itemProp="familyName">{a.family}</span>{period && ix > 0 && ix === (as.length - 1) && (a.family.endsWith('.') || '.')}</>;
   const renderGiven = (a: Author, ix: number) =>
-    (typeof a.given === 'string'
-      ? <><span itemProp="givenName">{a.given}</span>{period && reverseFirst && ix === 0 && ix === (as.length - 1) && (a.given.endsWith('.') || '.')}</>
-      : <><span itemProp="givenName">{a.given[0]}</span>
-        {(a.given.length > 1) && <> <span itemProp="additionalName">{a.given.slice(1).join(' ')}</span></>}
-        {period && reverseFirst && ix === 0 && ix === (as.length - 1) && (a.given[a.given.length - 1].endsWith('.') || '.')}
-      </>);
+  (typeof a.given === 'string'
+    ? <><span itemProp="givenName">{a.given}</span>{period && reverseFirst && ix === 0 && ix === (as.length - 1) && (a.given.endsWith('.') || '.')}</>
+    : <><span itemProp="givenName">{a.given[0]}</span>
+      {(a.given.length > 1) && <> <span itemProp="additionalName">{a.given.slice(1).join(' ')}</span></>}
+      {period && reverseFirst && ix === 0 && ix === (as.length - 1) && (a.given[a.given.length - 1].endsWith('.') || '.')}
+    </>);
 
   const reverseName = (a: Author) => a.lang === undefined ? false : (a.lang.startsWith('zh') || a.lang.startsWith('ja'));
 
@@ -138,6 +168,28 @@ const months =
     , "December"
   ] as const;
 
+type Date
+  = { year: number, month: number, day: number }
+  | { year: number, month: number }
+  | { year: number, season: string }
+  | { year: number };
+
+function renderExplicitDate(date: Date, omitIfJustYear: boolean): JSX.Element | null {
+  if ('month' in date) {
+    return <>{months[date.month - 1]}{'day' in date && <> {date.day}</>}, {date.year}</>;
+  }
+
+  if ('season' in date) {
+    return <>{date.season} {date.year}</>;
+  }
+
+  if (omitIfJustYear) {
+    return null;
+  }
+
+  return null
+}
+
 const renderContainer = (reference: Reference) => {
 
   if (!('container-title' in reference)) {
@@ -157,15 +209,15 @@ const renderContainer = (reference: Reference) => {
       return (<>
         {' '}
         <span itemScope itemType="http://schema.org/WebSite" itemProp="isPartOf">
-          <i><span itemProp="name">{containerTitle}</span></i>.
-                </span>
+          <i><span itemProp="name" lang={reference['container-title-lang']}>{containerTitle}</span></i>.
+        </span>
       </>);
 
     case 'chapter':
     case 'paper-conference':
       return (<>
         {' '}
-                In <i>{containerTitle}</i>
+        In <cite lang={reference['container-title-lang']}>{containerTitle}</cite>
         {reference.editor && <>, edited by {renderPeople(reference.editor, false, false, 'editor')}</>}
         {pageSuffix}
       </>);
@@ -173,41 +225,36 @@ const renderContainer = (reference: Reference) => {
     case 'article-magazine':
     case 'article-newspaper':
       const { issued } = reference;
-      if (!issued || !('month' in issued || 'season' in issued)) throw new Error('Magazine/newspaper citations must have issued date (including month or season)');
+      if (!issued) throw new Error('Magazine/newspaper citations must have issued date');
 
-      const issue = 'issue' in reference ? <> ({reference.issue})</> : null;
-      const volume = 'volume' in reference ? <> {reference.volume}</> : null;
+      const issue = reference.issue ? <> ({formatNumberString(reference.issue)})</> : null;
+      const volume = reference.volume ? <> <abbr title="volume">vol.</abbr>&nbsp;{formatNumberString(reference.volume)}</> : null;
+
+      const title = <cite itemProp="name" lang={reference['container-title-lang']}>{containerTitle}</cite>;
 
       // TODO: metadata
-      if ('month' in issued) {
-        return (<>
-            <cite itemProp="name">{containerTitle}</cite>{volume}{issue}, {months[issued.month - 1]}{'day' in issued && <> {issued.day}</>}, {issued.year}
-            {pageSuffix}
-          </>);
-      } else {
-        return (<>
-              <cite itemProp="name">{containerTitle}</cite>{volume}{issue}, {issued.season}, {issued.year} 
-              {pageSuffix}
-          </>);
-      }
+      const dateString = renderExplicitDate(issued, true);
+      const date = dateString !== null ? <>, {dateString}</> : null;
+      return <>{title}{volume}{issue}{date}{pageSuffix}</>;
 
     case 'article-journal':
       if (reference.issue && reference.volume) {
         const { issue, volume } = reference;
         return (<>
           <span itemScope itemType="http://schema.org/Periodical" itemID={`#${id}-periodical`}>
-            <cite itemProp="name">{containerTitle}</cite>
+            <cite itemProp="name" lang={reference['container-title-lang']}>{containerTitle}</cite>
           </span>
           {' '}
           <span itemScope itemType="http://schema.org/PublicationVolume" itemID={`#${id}-volume`}>
             <link itemProp="isPartOf" href={`#${id}-periodical`} />
-            <span itemProp="volumeNumber">{volume}</span>
+            <abbr title="volume">vol.</abbr>&nbsp;
+            <span itemProp="volumeNumber">{formatNumberString(volume)}</span>
           </span>
           {' '}
           <span itemProp="isPartOf" itemScope itemType="http://schema.org/PublicationIssue">
             <link itemProp="isPartOf" href={`#${id}-volume`} />
-                        (<span itemProp="issueNumber">{issue}</span>)
-                    </span>
+            (<span itemProp="issueNumber">{formatNumberString(issue)}</span>)
+          </span>
           {pageSuffix}
         </>);
       }
@@ -216,13 +263,13 @@ const renderContainer = (reference: Reference) => {
         const { issue } = reference;
         return (<>
           <span itemScope itemType="http://schema.org/Periodical" itemID={`#${id}-periodical`}>
-            <cite itemProp="name">{containerTitle}</cite>
+            <cite itemProp="name" lang={reference['container-title-lang']}>{containerTitle}</cite>
           </span>
           {' '}
           <span itemProp="isPartOf" itemScope itemType="http://schema.org/PublicationIssue">
             <link itemProp="isPartOf" href={`#${id}-periodical`} />
-                        (<span itemProp="issueNumber">{issue}</span>)
-                    </span>
+            (<span itemProp="issueNumber">{formatNumberString(issue)}</span>)
+          </span>
           {pageSuffix}
         </>);
       }
@@ -231,12 +278,13 @@ const renderContainer = (reference: Reference) => {
         const { volume } = reference;
         return (<>
           <span itemScope itemType="http://schema.org/Periodical" itemID={`#${id}-periodical`}>
-            <cite itemProp="name">{containerTitle}</cite>
+            <cite itemProp="name" lang={reference['container-title-lang']}>{containerTitle}</cite>
           </span>
           {' '}
           <span itemProp="isPartOf" itemScope itemType="http://schema.org/PublicationVolume">
             <link itemProp="isPartOf" href={`#${id}-periodical`} />
-            <span itemProp="volumeNumber">{volume}</span>
+            <abbr title="volume">vol.</abbr>&nbsp;
+            <span itemProp="volumeNumber">{formatNumberString(volume)}</span>
           </span>
           {pageSuffix}
         </>);
@@ -244,6 +292,27 @@ const renderContainer = (reference: Reference) => {
 
   }
 }
+
+function renderPatentBits(reference: Reference): JSX.Element | null {
+  if (reference.type !== 'patent') return null;
+
+  const filed = reference.filed ? renderExplicitDate(reference.filed, false) : null;
+  const issued = reference.issued ? renderExplicitDate(reference.issued, false) : null;
+
+  return (<>
+    {reference.patentNumber 
+      ? <>Patent {formatNumberString(reference.patentNumber)}{reference.applicationNumber && <> (application {formatNumberString(reference.applicationNumber)})</>}.</>
+      : reference.applicationNumber && <>Application {formatNumberString(reference.applicationNumber)}.</> }
+    {filed && <> Filed {filed}.</>}
+    {issued && <> Issued {issued}.</>}
+  </>);
+}
+
+function renderWarnings(reference: Reference): JSX.Element | null {
+  if (!reference.warnings) return null;
+
+  return <span className="reference-warning"><abbr title="warning">⚠</abbr>&nbsp;{reference.warnings}</span>
+};
 
 export const renderReference = (reference: Reference) => {
   const { id, type } = reference;
@@ -253,9 +322,11 @@ export const renderReference = (reference: Reference) => {
       {renderAuthors(reference)}
       {renderDate(reference)}
       {renderTitle(reference)}
+      {renderPatentBits(reference)}
       {renderContainer(reference)}
       {renderPublisher(reference)}
       {renderISBN(reference)}
+      {renderWarnings(reference)}
     </p>
   );
 }

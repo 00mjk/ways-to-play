@@ -136,11 +136,17 @@ const games = {
     import: React.lazy(() => import(/* webpackChunkName: 'tic-tac-toe' */ './TicTacToe'))
   },
   'xianqi': {
-    title: "Xiangqi",
+    title: "Xiàngqí",
     titleLang: "zh-Latn",
     draft: true,
     players: [2],
     import: React.lazy(() => import(/* webpackChunkName: 'xiangqi' */ './Xiangqi/Xiangqi'))
+  },
+  'tribord-et-babord': {
+    title: "Tribord et Bâbord",
+    titleLang: "fr",
+    players: [2],
+    import: React.lazy(() => import('./TribordEtBabord/TribordEtBabord'))
   }
 };
 
