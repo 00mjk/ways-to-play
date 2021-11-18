@@ -9,15 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/renderer-react": "^0.2.0",
-    "astro": "^0.20.4"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "bootstrap": "5.1",
-    "react-bootstrap": "^2.0.0-beta.6"
-  },
-  "resolutions": {
-    "@restart/hooks": "^0.4.0"
+    "@astrojs/renderer-react": "0.0.0-compiler-2021928195510",
+    "astro": "0.0.0-compiler-2021928195510"
   }
 }
