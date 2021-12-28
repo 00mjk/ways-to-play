@@ -509,6 +509,11 @@ const Manufacturers: React.FC = () => {
             <Noun lang="ja-Latn">Nintendō</Noun>’s <span lang="ja-Latn">Tengu</span> packaging.
           </ArticleImage>
           <ArticleImage
+            src={require('./Nintendo_Daitengu.jpg')}
+            alt="A Hanafuda wrapper with a red figure with a big nose, holding a fan made of feathers.">
+            <Noun lang="ja-Latn">Nintendō</Noun>’s <span lang="ja-Latn">Daitengu</span> packaging.
+          </ArticleImage>
+          <ArticleImage
             src={imgMiyakoNoHana}
             alt="A Hanafuda wrapper with cherry blossoms and willow leaves hanging over a river.">
             <Noun lang="ja-Latn">Nintendō</Noun>’s <span lang="ja-Latn">Miyako no Hana</span> packaging.
@@ -520,6 +525,7 @@ const Manufacturers: React.FC = () => {
           <li><span lang="ja">お多福</span> (<span lang="ja-Latn">otafuku</span>, ‘moon-faced woman’), trademarked in 1900<Cite r="Trademarks1905" page={67} /> <ArticleImage position="aside" alt="An actor wearing a mask of a white-faced woman with large cheeks, raised eyebrows, and a smile on her lips." src={imgOtafuku} source={{ originalUrl: "https://www.flickr.com/photos/kryptos5/2953289035", author: { given: "See Tatt", family: "Yeo" }, license: "cc-by-nc-nd", licenseVersion: "2.0" }}><Noun lang="ja-Latn">Otafuku</Noun> (also known as <Noun lang="ja-Latn">Okame</Noun>) is a traditional character associated with good luck, and often appears in <span lang="ja-Latn">kagura</span> performances alongside <a href="https://en.wikipedia.org/wiki/Hyottoko"><Noun lang="ja-Latn">Hyottoko</Noun></a>.</ArticleImage></li>
           <li><span lang="ja">正宗</span> (<span lang="ja-Latn">masamune</span>, <a href="https://en.wikipedia.org/wiki/Masamune">a famous swordsmith</a>), trademarked in 1900<Cite r="Trademarks1905" page={67} /></li>
           <li><span lang="ja">天狗</span> (<span lang="ja-Latn">tengu</span>, ‘<Noun lang="ja-Latn">Tengu</Noun>’), trademarked in 1912<Cite r="Trademarks1924_5" page={276} /></li>
+          <li><span lang="ja">大天狗</span> (<span lang="ja-Latn">daitengu</span>, the most powerful type of <Noun lang="ja-Latn">Tengu</Noun>)</li>
           <li><span lang="ja">大将</span> (<span lang="ja-Latn">taishō</span>, ‘general’), trademarked in 1900<Cite r="Trademarks1905" page={67} /></li>
           <li><span lang="ja">白梅</span> (<span lang="ja-Latn">hakubai</span>, ‘white plum’), not in use as of 1980</li>
           <li><span lang="ja">櫻乃山</span> (<span lang="ja-Latn">sakura no yama</span>, ‘mountain cherry blossoms’), not in use as of 1980</li>
@@ -532,6 +538,7 @@ const Manufacturers: React.FC = () => {
           <li><span lang="ja">御所櫻</span> (<span lang="ja-Latn">gosho&shy;zakura</span>, ‘imperial palace cherry blossoms’)</li>
           <li><span lang="ja">日乃出</span> (<span lang="ja-Latn">hinode</span>, ‘sunrise’)</li>
           <li><span lang="ja">常磐</span> (<span lang="ja-Latn">tokiwa</span>, ‘eternal’, a reference to <a href="/articles/cards/japan/hanafuda/art/#1">the <span lang="ja-Latn">waka</span> that appears on the pine cards in some decks</a>)</li>
+          <li><span lang="ja">丹頂</span> (<span lang="ja-Latn">tanchō</span>, ‘red-crested crane’, that appears on the pine bright)</li>
         </ul>
         <ArticleImage
           src={[
@@ -990,6 +997,12 @@ const Manufacturers: React.FC = () => {
           <Noun lang="ja-Latn">Tanaka Gyokusuidō</Noun>’s trademark, registered on the 16th of October 1893 by <Noun lang="ja-Latn">Tanaka Heibe</Noun> (<span lang="ja">田中平兵衛</span>).<Cite r="Trademarks1905" page={65} />
         </ArticleImage>
         <p><Noun lang="ja-Latn">Tanaka Gyokusuidō</Noun> was founded around 1893, and existed in <Noun lang="ja-Latn">Kyōto</Noun> through 1914 (when it was run by <Noun lang="ja-Latn">Tanaka Haru</Noun> <span lang="ja">田中ハル</span>),<Cite r="JapaneseBusinessmen1914" page={151} /> and 1948,<Cite r="Yamaguchi" page={102} /> but had stopped producing in the early 1960s.<Cite r="ModernJapaneseWrappers" page={33} /> Their brands (including <Noun lang="ja-Latn">Fukusuke</Noun> and <Noun lang="ja-Latn">Ginsuehiro</Noun>) and manufacturer’s mark were taken over by <Noun lang="ja-Latn">Iwata Honten</Noun>.<Cite r="ModernJapaneseWrappers" page={[48, 59]} /></p>
+        <ArticleImage
+          noborder
+          src={require('./Gyokusuido_brights.jpg')}
+          alt="">
+          Five Brights from a <Noun lang="ja-Latn">Tanaka Gyokusuidō</Noun> deck.
+        </ArticleImage>
         <p>Their maker’s mark was <span lang="ja">田</span> with corner on top, and brands included:</p>
         <ul>
           <li><span lang="ja">福助</span> (<span lang="ja-Latn">fukusuke</span>, a <a href="https://en.wikipedia.org/wiki/Fukusuke">large-headed good luck doll</a>)</li>
@@ -1008,12 +1021,19 @@ const Manufacturers: React.FC = () => {
           <li><span lang="ja">白</span> (<span lang="ja-Latn">shiro</span>, ‘white’)</li>
           <li><span lang="ja">小判</span> (<span lang="ja-Latn">koban</span>, a large coin)</li>
         </ul>
-        <ArticleImage
-          alt=""
-          src={imgTGFukusuke}
-          source={{ license: "cc0" }}>
-          <Noun lang="ja-Latn">Tanaka Gyokusuidō</Noun>’s <span lang="ja-Latn">fukusuke</span> brand.
-        </ArticleImage>
+        <div className="multi">
+          <ArticleImage
+            src={require('./Gyokusuido_brand.jpg')}
+            alt="">
+            <Noun lang="ja-Latn">Tanaka Gyokusuidō</Noun>’s maker’s mark.
+          </ArticleImage>
+          <ArticleImage
+            alt=""
+            src={imgTGFukusuke}
+            source={{ license: "cc0" }}>
+            <Noun lang="ja-Latn">Tanaka Gyokusuidō</Noun>’s <span lang="ja-Latn">fukusuke</span> brand.
+          </ArticleImage>
+        </div>
       </Section>
       <Section title={<><Noun lang="ja-Latn">Iwata Honten</Noun> (<span lang="ja">岩田本店</span>)</>}>
         <ArticleImage
@@ -1140,6 +1160,10 @@ const Manufacturers: React.FC = () => {
         <div className="multi wide">
           <ArticleImage src={imgNKhigashinishiki1} alt="A hanafuda wrapper featuring a fan.">
             The inner <span lang="ja-Latn">higashinishiki</span> wrapper, for a single deck.
+          </ArticleImage>
+          <ArticleImage src={require('./NK_fuji.jpg')} alt="A hanafuda wrapper with an image of Mount Fuji"
+            source={{ author: { family: "琴比", given: "良哲", familyFirst: true, lang: "ja" }, license: "with-permission", copyrightYear: 2021 }}>
+            The <span lang="ja-Latn">fuji</span> wrapper.
           </ArticleImage>
           <ArticleImage src={imgNKkinfuji} alt="A hanafuda wrapper with an image of Mount Fuji.">
             The <span lang="ja-Latn">kinfuji</span> wrapper.
@@ -1268,9 +1292,26 @@ const Manufacturers: React.FC = () => {
           }}>
           Wrapper, maker’s mark (on Wisteria), and advertising card from a <span lang="ja-Latn">dai&shy;tengu</span> deck.
         </ArticleImage>
-        <p>The only brand I know of is:</p>
+        <p>In the 1930s their brands included (in descending price order):</p>
         <ul>
-          <li><span lang="ja">大天狗</span> (<span lang="ja-Latn">dai&shy;tengu</span>, ‘great <span lang="ja-Latn">tengu</span>’)</li>
+          <li><span lang="ja">花の譽</span> (<span lang="ja-Latn">hana no homare</span>, ‘flower’s honour’)</li>
+          <li><span lang="ja">福天狗</span> (<span lang="ja-Latn">fuku&shy;tengu</span>, ‘lucky <span lang="ja-Latn">tengu</span>’), also used for <span lang="ja-Latn">mushi-</span>, <span lang="ja-Latn">kabu-</span>, <span lang="ja-Latn">mekuri-</span>, and <span lang="ja-Latn">mamefuda</span></li>
+          <li><span lang="ja">金天狗</span> (<span lang="ja-Latn">kin&shy;tengu</span>, ‘golden <span lang="ja-Latn">tengu</span>’), also used for <span lang="ja-Latn">mushi-</span>, <span lang="ja-Latn">kabu-</span>, <span lang="ja-Latn">mekuri-</span>, and <span lang="ja-Latn">mamefuda</span></li>
+          <li><span lang="ja">銀天狗</span> (<span lang="ja-Latn">gin&shy;tengu</span>, ‘silver <span lang="ja-Latn">tengu</span>’)</li>
+          <li><span lang="ja">大天狗</span> (<span lang="ja-Latn">dai&shy;tengu</span>, ‘great <span lang="ja-Latn">tengu</span>’), also used for <span lang="ja-Latn">mushi-</span>, <span lang="ja-Latn">kabu-</span>, <span lang="ja-Latn">mekuri-</span>, and <span lang="ja-Latn">mamefuda</span></li>
+          <li><span lang="ja">美人天狗</span> (<span lang="ja-Latn">bijin&shy;tengu</span>, ‘beauty <span lang="ja-Latn">tengu</span>’)</li>
+          <li><span lang="ja">中天狗</span> (<span lang="ja-Latn">naka&shy;tengu</span>, ‘middle <span lang="ja-Latn">tengu</span>’)</li>
+          <li><span lang="ja">花天狗</span> (<span lang="ja-Latn">hana&shy;tengu</span>, ‘flower <span lang="ja-Latn">tengu</span>’), only used for <span lang="ja-Latn">mushifuda</span></li>
+          <li><span lang="ja">三天狗</span> (<span lang="ja-Latn">san&shy;tengu</span>, ‘three <span lang="ja-Latn">tengu</span>’)</li>
+          <li><span lang="ja">國の花</span> (<span lang="ja-Latn">kuni no hana</span>, ‘nation’s flower’)</li>
+          <li><span lang="ja">八重櫻</span> (<span lang="ja-Latn">yaezakura</span>, ‘eight-fold cherry blossom’, a double-flowered cherry blossom), also used for <span lang="ja-Latn">mushifuda</span></li>
+          <li><span lang="ja">福助</span> (<span lang="ja-Latn">fukusuke</span>), only used for <span lang="ja-Latn">kabu-</span>, <span lang="ja-Latn">mekuri-</span>, and <span lang="ja-Latn">mamefuda</span></li>
+          <li><span lang="ja">紅梅</span> (<span lang="ja-Latn">kōbai</span>, ‘red plum’)</li>
+          <li><span lang="ja">張貫</span> (<span lang="ja-Latn">harinuki</span>, a manufacturing technique), only used for <span lang="ja-Latn">kabu-</span>, <span lang="ja-Latn">mekuri-</span>, and <span lang="ja-Latn">mamefuda</span></li>
+          <li><span lang="ja">一楽</span> (<span lang="ja-Latn">ichiraku</span>, ‘one of one’s hobbies’), only used for <span lang="ja-Latn">kabu-</span>, <span lang="ja-Latn">mekuri-</span>, and <span lang="ja-Latn">mamefuda</span></li>
+          <li><span lang="ja">五光</span> (<span lang="ja-Latn">gokō</span>, ‘five brights’)</li>
+          <li><span lang="ja">青天狗</span> (<span lang="ja-Latn">ao&shy;tengu</span>, ‘blue <span lang="ja-Latn">tengu</span>’), only used for <span lang="ja-Latn">kabu-</span>, <span lang="ja-Latn">mekuri-</span>, and <span lang="ja-Latn">mamefuda</span></li>
+          <li><span lang="ja">天狗</span> (<span lang="ja-Latn">tengu</span>, ‘<span lang="ja-Latn">tengu</span>’), only used for <span lang="ja-Latn">mamefuda</span></li>
         </ul>
         <ArticleImage
           src={imgTsuchidaWrapper}
@@ -1316,6 +1357,47 @@ const Manufacturers: React.FC = () => {
           <li><span lang="ja">旭富士</span> (<span lang="ja-Latn">asahifuji</span> ‘<Noun lang="ja-Latn">Fuji</Noun> sunrise’)</li>
           <li><span lang="ja">桜判官</span> (<span lang="ja-Latn">sakurahangan</span> ‘cherry blossom judge’, a reference to <a href="https://en.wikipedia.org/wiki/T%C5%8Dyama_Kagemoto"><Noun lang="ja-Latn">Tōyama Kagemoto</Noun></a>)</li>
         </ul>
+        <div className="multi">
+        <ArticleImage
+          src={require('./Heibon_botanjishi.jpg')}
+          alt="A hanafuda deck with an image of a stylized lion and peony flower."
+          source={{
+            license: "with-permission",
+            copyrightYear: 2021,
+            author: {
+              family: "Sartor",
+              given: "Ryan"
+            }
+          }}>
+          <Noun lang="ja-Latn">Heibon</Noun>’s <span lang="ja-Latn">botanjishi</span> wrapper. Note the sticker indicating that the box contains <Noun lang="ja-Latn">Kabufuda</Noun> cards.
+        </ArticleImage>
+        <ArticleImage
+          src={require('./Heibon_sakurahangan.jpg')}
+          alt="A hanafuda wrapper with an image of a Japanese judge’s haircut and cherry blossoms."
+          source={{
+            license: "with-permission",
+            copyrightYear: 2021,
+            author: {
+              family: "Sartor",
+              given: "Ryan"
+            }
+          }}>
+          <Noun lang="ja-Latn">Heibon</Noun>’s <span lang="ja-Latn">sakurahangan</span> wrapper.
+        </ArticleImage>
+        <ArticleImage
+          src={require('./Heibon_asahifuji.jpg')}
+          alt="A hanafuda wrapper with an image of the sun rising over Mount Fuji."
+          source={{
+            license: "with-permission",
+            copyrightYear: 2021,
+            author: {
+              family: "Sartor",
+              given: "Ryan"
+            }
+          }}>
+          <Noun lang="ja-Latn">Heibon</Noun>’s <span lang="ja">asahifuji</span> wrapper. (Low-resolution image from the side of a <span lang="ja-Latn">botanjishi</span> wrapper.)
+        </ArticleImage>
+        </div>
       </Section>
       <Section title={<><Noun lang="ja-Latn">Kawakita</Noun> (<span lang="ja">川北</span>)</>}>
         <p><Noun lang="ja-Latn">Kawakita</Noun> had its own brands but cards were made by <Noun lang="ja-Latn">Yamashiro Shōten</Noun>. It closed after 1962.<Cite r="ModernJapaneseWrappers" page={[[48, 49]]} /> Brands included:</p>

@@ -574,7 +574,10 @@ div.multi {
     display: flex;
     width: 100%;
     justify-content: space-around;
-    margin-bottom: 1rem;
+
+    &.wide, &.extra-wide {
+        margin-bottom: 1rem;
+    }
 }
 
 // margins for children
@@ -606,6 +609,10 @@ figcaption img {
 
 /*** Abbreviations ***/
 abbr.initialism {
+    font-variant: small-caps;
+}
+
+.smallcaps {
     font-variant: small-caps;
 }
 

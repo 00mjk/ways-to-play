@@ -10,11 +10,23 @@ export const Equipment = {
 } as const;
 
 export type GameMeta = Readonly<{
-  players: readonly number[],
+  players: readonly number[] | 'any',
   equipment?: keyof typeof Equipment,
 } & ArticleContent>
 
 const games = {
+  'achi': {
+    title: "Achi",
+    titleLang: "ee",
+    players: [2],
+    import: React.lazy(() => import('./Achi/Achi')),
+  },
+  'assault': {
+    title: "Assault",
+    players: [2],
+    draft: true,
+    import: React.lazy(() => import('./Assault/Assault')),
+  },
   'balik-satu': {
     title: "Balik Satu",
     titleLang: "ms",
@@ -65,9 +77,15 @@ const games = {
   'crown-and-anchor': {
     title: "Crown & Anchor",
     equipment: "dice" as const,
-    players: [],
+    players: 'any' as const,
     import: React.lazy(() => import('./CrownAndAnchor/CrownAndAnchor')),
     draft: true,
+  },
+  'fox-and-geese': {
+    title: "Fox and Geese",
+    players: [2],
+    draft: true,
+    import: React.lazy(() => import('./FoxAndGeese/FoxAndGeese')),
   },
   'gunjin-shoji': {
     title: "Gunjin Shogi",
@@ -118,6 +136,11 @@ const games = {
     draft: true,
     import: React.lazy(() => import(/* webpackChunkName: 'nine-mens-morris' */ './NineMensMorris/NineMensMorris'))
   },
+  'eight-faces': {
+    title: "Eight Faces",
+    players: 'any' as const,
+    import: React.lazy(() => import('./PekBin/PekBin')),
+  },
   'take-it-away': {
     title: "Take It Away",
     players: [2, 3, 4],
@@ -129,9 +152,14 @@ const games = {
     players: [2],
     import: React.lazy(() => import(/* webpackChunkName: 'konane' */ './Konane'))
   },
+  'shax': {
+    title: "Shax",
+    titleLang: "so",
+    players: [2],
+    import: React.lazy(() => import(/* webpackChunkName: 'shax' */ './Shax/Shax'))
+  },
   'tic-tac-toe': {
     title: "Tic-Tac-Toe",
-    draft: true,
     players: [2],
     import: React.lazy(() => import(/* webpackChunkName: 'tic-tac-toe' */ './TicTacToe'))
   },
@@ -142,12 +170,18 @@ const games = {
     players: [2],
     import: React.lazy(() => import(/* webpackChunkName: 'xiangqi' */ './Xiangqi/Xiangqi'))
   },
+  'three-mens-morris': {
+    title: "Three Men’s Morris",
+    draft: true,
+    players: [2],
+    import: React.lazy(() => import('./ThreeMensMorris/ThreeMensMorris')),
+  },
   'tribord-et-babord': {
     title: "Tribord et Bâbord",
     titleLang: "fr",
     players: [2],
     import: React.lazy(() => import('./TribordEtBabord/TribordEtBabord'))
-  }
+  },
 };
 
 export type GameId = keyof typeof games

@@ -51,7 +51,7 @@
         "issued": {
             "year": 1992
         },
-        "ISBN": "978-0471-53621-0",
+        "ISBN": "0471-53621-0",
         "publisher": "John Wiley & Sons",
         "publisher-place": "USA"
     },
@@ -783,7 +783,7 @@
         },
         "URL": "https://archive.org/stream/mobot31753003193114#page/116/mode/2up"
     },
-    "Goddard1901": {
+    "Goddard1900": {
         "type": "article-journal",
         "title": "Nine Men’s Morris: An Old Viking Game",
         "author": [
@@ -799,9 +799,47 @@
         "volume": "2",
         "page": "377–385",
         "issued": {
-            "year": 1901
+            "year": 1900
         },
         "URL": "http://www.vsnrweb-publications.org.uk/Saga-Book%201-22%20searchable/Saga-Book%20II.pdf"
+    },
+    "Goddard1901": {
+        "type": "article-journal",
+        "title": "Find of another Nine Men’s Morris Stone: Comments of Mr. Goddard",
+        "author": [
+            {
+                "family": "Goddard",
+                "given": [
+                    "A.",
+                    "R."
+                ]
+            }
+        ],
+        "container-title": "Saga-Book of the Viking Club",
+        "volume": 3,
+        "URL": "http://www.vsnrweb-publications.org.uk/Saga-Book%201-22%20searchable/Saga-Book%20III.pdf",
+        "page": "20-21",
+        "issued": {
+            "year": 1901
+        }
+    },
+    "PegMeryll": {
+        "type": "article-journal",
+        "title": "Peg Meryll",
+        "author": [
+            {
+                "given": "R. S.",
+                "family": "Baker"
+            }
+        ],
+        "issued": {
+            "year": 1871
+        },
+        "page": "127-134",
+        "container-title": "Associated Architectural Societies’ Reports & Papers",
+        "volume": 11,
+        "issue": 1,
+        "URL": "https://babel.hathitrust.org/cgi/pt?id=uc1.b3018386&view=1up&seq=235"
     },
     "EssaysOnChess": {
         "type": "book",
@@ -1361,7 +1399,7 @@
     },
     "Hyde": {
         "type": "book",
-        "title": "Historia Nerdiludii",
+        "title": "De Ludis Orientalibus Libri Duo",
         "author": [
             {
                 "family": "Hyde",
@@ -1371,6 +1409,7 @@
         "issued": {
             "year": 1694
         },
+        "volume": 1,
         "publisher": "Oxford University Press",
         "publisher-place": "Oxford, UK",
         "URL": "https://books.google.com.au/books?id=FIFcAAAAcAAJ"
@@ -1766,7 +1805,7 @@
         },
         "publisher": "Stanford University Press",
         "publisher-place": "Stanford, CA, USA",
-        "ISBN": "0804706537"
+        "ISBN": "0804706530"
     },
     "KokinWakashu": {
         "type": "book",
@@ -1843,7 +1882,7 @@
                 "family": "Ferg"
             }
         ],
-        "ISBN": 2095492,
+        "ISBN": 9780978774608,
         "issued": {
             "year": 2006,
             "month": 12,
@@ -2714,7 +2753,7 @@
         "issued": {
             "year": 2003
         },
-        "ISBN": 1567711438,
+        "ISBN": 9781568811437,
         "id": "WinningWaysV3"
     },
     "AnimalInFarEasternArt": {
@@ -3778,7 +3817,7 @@
     "ElementsOfJapaneseDesign": {
         "title": "The Elements of Japanese Design",
         "type": "book",
-        "ISBN": "978-0-8348-0229-5",
+        "ISBN": "978-0-8348-0229-2",
         "author": [
             {
                 "given": "John",
@@ -4109,7 +4148,7 @@
         "publisher": "The University Of Chicago Press",
         "publisher-place": "Chicago",
         "URL": "https://archive.org/details/intimeofcannibal0000copl",
-        "ISBN": "0-266-11573-9"
+        "#bad ISBN": "0-266-11573-9"
     },
     "LaRegleDuTemple": {
         "type": "book",
@@ -4857,7 +4896,8 @@
             "year": 1887
         },
         "publisher": "The Williams Publishing Company",
-        "publisher-place": "Cleveland, Ohio, USA"
+        "publisher-place": "Cleveland, Ohio, USA",
+        "URL": "https://archive.org/details/corporalsikleggh000hinm"
     },
     "WanderingsofaVagabond": {
         "type": "book",
@@ -5705,5 +5745,289 @@
         "issued": {
             "year": 1991
         }
+    },
+    "WOPCNCC": {
+        "type": "webpage",
+        "URL": "https://www.wopc.co.uk/usa/national/index",
+        "author": [
+            {
+                "given": "Simon",
+                "family": "Wintle"
+            }
+        ],
+        "title": "National Card Co.",
+        "container-title": "The World of Playing Cards",
+        "issued": {
+            "year": 2010
+        }
+    },
+    "MaedaBook": {
+        "type": "book",
+        "URL": "https://dl.ndl.go.jp/info:ndljp/pid/861407",
+        "title": "骨牌勝利法 : 文明遊具 一名・まける事しらず",
+        "title-lang": "ja",
+        "author": [
+            {
+                "family": "前田",
+                "given": "喜兵衛",
+                "lang": "ja"
+            }
+        ],
+        "publisher": "上方かるた商店",
+        "publisher-lang": "ja",
+        "publisher-place": "Tokyo, Japan",
+        "issued": {
+            "year": 1888
+        }
+    },
+    "HuaHuiBrunei": {
+        "type": "webpage",
+        "URL": "http://bruneiresources.blogspot.com/2008/07/hua-hui-and-gambling-games-in-brunei.html",
+        "title": "Hua Hui and Gambling Games in Brunei",
+        "author": [
+            {
+                "family": "Yunos",
+                "given": "Rozan"
+            }
+        ],
+        "issued": {
+            "year": 2008,
+            "month": 7,
+            "day": 9
+        },
+        "container-title": "The Daily Brunei Resources"
+    },
+    "SEAlangBalinese": {
+        "type": "webpage",
+        "title": "SEAlang library Balinese dictionary",
+        "URL": "http://sealang.net/bali/dictionary.htm",
+        "publisher": "SEAlang",
+        "issued": {
+            "year": 2011
+        }
+    },
+    "郑超麟回忆录": {
+        "type": "book",
+        "title": "郑超麟回忆录",
+        "title-lang": "zh",
+        "author": [
+            {
+                "family": "郑",
+                "given": "超麟",
+                "lang": "zh"
+            }
+        ],
+        "volume": "1 (1900–1919)",
+        "publisher": "现代史料编刊社",
+        "publisher-lang": "zh",
+        "issued": {
+            "year": 1986
+        },
+        "URL": "https://www.marxists.org/chinese/zhengchaolin/1900-1931/1-08.htm"
+    },
+    "LawsOfBrunei": {
+        "type": "chapter",
+        "title": "Chapter 28: Common Gaming Houses",
+        "container-title": "Laws of Brunei: Revised Edition 2019",
+        "issued": {
+            "year": 2019
+        },
+        "URL": "https://www.agc.gov.bn/AGC%20Images/LAWS/ACT_PDF/CAP%2028.pdf"
+    },
+    "SingaporeGamesOfChanceAndSkill": {
+        "type": "webpage",
+        "title": "Games of Chance and Skill",
+        "container-title": "Singapore Statutes Online",
+        "issued": {
+            "year": 1997,
+            "day": 15,
+            "month": 6
+        },
+        "URL": "https://sso.agc.gov.sg/SL/CGHA1961-N2?ProvIds=Sc-#Sc-"
+    },
+    "MalaysiaCommonGamingHousesAct": {
+        "type": "webpage",
+        "title": "Common Gaming Houses Act 1953 (Revised 1983)",
+        "URL": "http://www.commonlii.org/my/legis/consol_act/cgha19531983289/",
+        "container-title": "Commonwealth Legal Information Institute",
+        "issued": {
+            "year": 1983
+        }
+    },
+    "FirstFootsteps": {
+        "type": "book",
+        "title": "First Footsteps in East Africa",
+        "author": [
+            {
+                "given": "Richard F.",
+                "family": "Burton"
+            }
+        ],
+        "publisher": "Longman, Brown, Green, and Longmans",
+        "publisher-place": "London",
+        "issued": {
+            "year": 1856
+        },
+        "URL": "https://books.google.co.nz/books?id=5POdm7UKXP4C"
+    },
+    "DevilsPulpit": {
+        "type": "book",
+        "title": "The Devil’s Pulpit: or Astro-Theological Sermons",
+        "author": [
+            {
+                "family": "Taylor",
+                "given": "Robert"
+            }
+        ],
+        "issued": {
+            "year": 1857
+        },
+        "publisher": "Calvin Blanchard",
+        "publisher-place": "New York",
+        "URL": "https://archive.org/details/devilspulpit00tayl"
+    },
+    "ComicNurseryTales": {
+        "type": "book",
+        "title": "Comic Nursery Tales",
+        "URL": "https://digitalarchive.tpl.ca/objects/361549/comic-nursery-tales",
+        "issued": {
+            "year": 1844
+        },
+        "author": [
+            {
+                "given": "F. W. N.",
+                "family": "Bayley"
+            }
+        ],
+        "edition": 3,
+        "publisher": "WM. S. Orr & Co.",
+        "publisher-place": "London"
+    },
+    "alQamus": {
+        "type": "book",
+        "title": "القاموس المحيط",
+        "title-lang": "ar",
+        "author": [
+            {
+                "family": "فيروزآبادى",
+                "given": "محمد بن يعقوب",
+                "lang": "ar"
+            }
+        ],
+        "issued": {
+            "year": 1414
+        },
+        "warnings": "Published 1350–1450?",
+        "URL": "https://openn.library.upenn.edu/Data/0001/html/ljs387.html#a328r"
+    },
+    "GamblingInIslam": {
+        "type": "chapter",
+        "title": "Gambling in Islam",
+        "author": [
+            {
+                "given": "Franz",
+                "family": "Rosenthal"
+            }
+        ],
+        "editor": [
+            {
+                "given": "Dimitri",
+                "family": "Gutas"
+            }
+        ],
+        "container-title": "Man versus Society in Medieval Islam",
+        "ISBN": "978-90-04-27089-3",
+        "issued": {
+            "year": 2015
+        },
+        "original-date": {
+            "year": 1975
+        },
+        "publisher": "Brill",
+        "publisher-place": "Leiden, The Netherlands",
+        "page": "338–516"
+    },
+    "VictorianTTT": {
+        "type": "webpage",
+        "title": "The Mystery of the Victorian Tic-Tac-Toe Computer",
+        "URL": "https://widespacer.blogspot.com/2015/05/the-mystery-of-victorian-tic-tac-toe.html",
+        "issued": {
+            "year": 2015
+        },
+        "container-title": "Sentence Spacing",
+        "author": [
+            {
+                "given": "Thomas A.",
+                "family": "Fine"
+            }
+        ]
+    },
+    "AutomaticTTT": {
+        "type": "article-journal",
+        "title": "An Automatic Tit-Tat-To Machine",
+        "author": [
+            {
+                "given": "Frank T.",
+                "family": "Freeland"
+            }
+        ],
+        "container-title": "Journal of the Franklin Institute of the State of Pennsylvania",
+        "issued": {
+            "year": 1879
+        },
+        "volume": 102,
+        "issue": 1,
+        "page": "1–9",
+        "URL": "https://archive.org/details/journalfranklini107fran/page/n17"
+    },
+    "LaneTab": {
+        "type": "webpage",
+        "title": "Arabic–English Lexicon by Edward William Lane (d. 1876): <span lang='ar'>طبن</span>",
+        "container-title": "The Arabic Lexicon",
+        "author": [
+            {
+                "given": "Ikram",
+                "family": "Hawramani"
+            }
+        ],
+        "issued": {
+            "year": 2021
+        },
+        "URL": "http://arabiclexicon.hawramani.com/?p=1107&book=50#fba865"
+    },
+    "AdjiBoto": {
+        "type": "article-journal",
+        "title": "Adjiboto, an African Game of the Bush-Negroes of Dutch Guiana",
+        "URL": "http://www.jstor.org/stable/2789486",
+        "author": [
+            {
+                "given": "Melville J.",
+                "family": "Herskovits"
+            }
+        ],
+        "issued": {
+            "month": 7,
+            "year": 1929
+        },
+        "container-title": "Man",
+        "volume": 29,
+        "page": "122-127"
+    },
+    "AtlitCastle": {
+        "type": "article-journal",
+        "title": "Excavations at Pilgrims’ Castle, ʿAtlit (1932–3); Stables at the South-West of the Suburb",
+        "author": [
+            {
+                "given": "C. N.",
+                "family": "Johns"
+            }
+        ],
+        "container-title": "The Quarterly of the Department of Antiquities in Palestine",
+        "volume": 5,
+        "page": "31–61",
+        "issued": {
+            "year": 1936
+        },
+        "URL": "https://books.google.co.nz/books?id=uFTVAAAAMAAJ&pg=PA42-IA1"
     }
 }
